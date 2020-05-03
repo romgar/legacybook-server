@@ -1,0 +1,28 @@
+language: python
+python:
+- 3.7.7
+env:
+  matrix:
+  - DJANGO=3
+  global:
+    secure: EbrIfMx5s64WvDrKGLjOPVs4ZhfpZFNJcMDCKRH8BHBq3Gc/klYMMzAcpQBnRrbEG7P62m3eiYgiHidh5loxRXnkwwsoO1ZqJw2jx9qel3wOUXFk69UdZyVakZQ/3Gu80iUibw0DOdvyNTGd1CTsfy39LDsWKihzMdqjTdU5Q9hOZPskCWKKZgvxyAlQXrJbLIEUE0eXD0XI0XT50OekvmpCWPkYDsOrq/Pdgc3u+cFPgtX0Xk+XYn2pnJeZSJNzDBEfs5HauX6y/OmAAxXd09twVLQKNcufy+QArP4voQeSxQox/K7M2O+gCoonqLAmfCU5rNe4EU3k8JMcFZJqXSsOif5AnSB5tR0s6k/S4MmTYf6xUVBsvxgYplu/XbVggRKNtuV1X87LCNIill0QRmYZEwMiBrDX301eKDVzRlhlAJVFkFF9e+k3iwVDhRfei7u5xKkX6tokzuvqMICxr9GeiduogzYaxrP3oBTJcn6mIXh6jnuX0PPUqVM548+wMomDgWs9do7VWmTp/z57zomNw/iP9pFj6BGif6nNfe5+H1fvFMcGvq/gU2dSdGiDbM1dO6OoJ9acWJItVZlrRlejrePVdHvddrDgr4u/yHTFBRatCXDrevmSX2V62VBEHt66Z+6iGlJ0HQ40OiwgkeJgwRGiGhGqzhmXUlLH1Qk=
+install:
+- pip install pipenv
+- pipenv install
+before_script:
+- export SECRET_KEY=dummy_secret_key
+- export DATABASE_SERVER_URL=sqlite:///db.sqlite3
+- export PRODUCTION_SERVER_URL='localhost'
+script:
+# Moving into project folder to have the test runner properly detect all tests.
+- cd legacybook_server
+- "./manage.py test -v3"
+# Coming back to the app root, or the package archive sent to Heroku in the deploy section
+# won't contain the necessary Pipfile to have buildpack detect this python project.
+- cd $TRAVIS_BUILD_DIR
+deploy:
+  provider: heroku
+  app: legacybook-server
+  api_key:
+    secure: dVqmq58I4uPU/Huq3JdXQe9mAo3tGIkTwU+m6LEILdmRn9jQ6QEHuxl6/a7XcOCxoSbDq6q+dqY6KeZa6KTHfy8oc7clQ4Y9OjxVcF5aHCLw/pKCAbOq5iWSWuwPRdp8EoQj0yKJvWDZD9qiA6sjdZVRfEhTzVJplUwz+AjmVvMRnVxx2HlS2NFvHzOAMqAc1Z9kRqoqe2go7uPMOJuly4hrQUkf0Z/+a5i0IY/GQ/EYlDvTPS9RU1PuiF1exPXcwHX2mF0vgvEN+nuOuvHx7EM3+EMsbjSkHrtnOrdUY92K7H4cXUBX4mNcnhPGluSphO9B3v66bdjtFWNHD2N2JgVadUvZDRF3H5NIIQX6JeSSqvf7MzjVt7wItuuzI0H/Aq+Z/A4+K/NzUuFzq6fBb6Q6cubxUGGqVrfYmh0PaRKfFqIpYGZgUbJsavxTGBN3SjWGw2pwPBBrFjTRl8UHnTmM7NihaI2jVpR4u1EUOQ486cGNrHXm6V0v2Biw3wvRRUt2FH5BCLa5RGAUG+oH4wbYyIWVeq4Msz/GQVuqShGWqgUTXAOyMqhgvA+V45JMgdVFN/YSG0EapLoLUiY1kzIC7KmcqFsKcbBJT/Stp8MeyxLmVZI5FdjmgRW4700fpzaxnv3g4zRB9f7MV+YFr1tcQkzdWHOYGTW5Eg6WfBU=
+  on: master
