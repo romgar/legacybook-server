@@ -27,8 +27,9 @@ BASE_DIR = root()
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
-ALLOWED_HOSTS = ['localhost', env('PRODUCTION_SERVER_URL')]
+DEBUG = env('DEBUG')
 
+ALLOWED_HOSTS = ['localhost', env('PRODUCTION_SERVER_URL')]
 
 # Application definition
 
@@ -119,6 +120,11 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Using custom User model for authentication
 AUTH_USER_MODEL = 'account.User'
