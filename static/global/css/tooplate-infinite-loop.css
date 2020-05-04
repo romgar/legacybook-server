@@ -88,6 +88,7 @@ blockquote {
 .tm-navbar.scroll {
   background-color: white;
   border-bottom: 1px solid #e9ecef;
+  text-shadow: none;
 }
 
 .navbar-brand {
