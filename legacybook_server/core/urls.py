@@ -19,5 +19,6 @@ from marketing.views import homepage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', homepage)
+    path('', homepage),
+    path('account/', include('account.urls'))
 ]
