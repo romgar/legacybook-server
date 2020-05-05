@@ -1,8 +1,9 @@
 
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LogoutView
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from account.forms import RegisterUserForm
 
@@ -25,9 +26,21 @@ def register(request):
         register_form = RegisterUserForm(request.POST)
         if register_form.is_valid():
             register_form.save()
-            return render(request, 'account/register_success.html', {
-                'register_form': register_form
-            })
+            email = register_form.cleaned_data['email']
+            password = register_form.cleaned_data['password']
+            user = authenticate(request, email=email, password=password)
+            if user is not None:
+                login(request, user)
+                messages.add_message(
+                    request, messages.SUCCESS,
+                    'Votre compte a été créé avec success!'
+                )
+                return redirect('account_profile')
+            else:
+                # Should never happen, as we just created this user
+                # and we used the exact same email/password to create it
+                # TODO: raise a proper log when configured.
+                pass
 
     return render(request, 'account/register.html', {
         'register_form': register_form
