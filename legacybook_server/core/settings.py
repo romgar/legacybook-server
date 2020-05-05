@@ -128,3 +128,10 @@ STATICFILES_DIRS = (
 
 # Using custom User model for authentication
 AUTH_USER_MODEL = 'account.User'
+
+LOGIN_URL = 'login_view'
+LOGIN_REDIRECT_URL = 'account_profile'
+
+# Uncomment this settings to avoid a specific page when logged out, but
+# directly redirect to another page.
+LOGOUT_REDIRECT_URL = 'homepage'

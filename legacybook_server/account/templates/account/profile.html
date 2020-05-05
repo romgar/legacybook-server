@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>LegacyBook</title>
+    <link rel="stylesheet" href="{% static "global/css/bootstrap.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "global/css/tooplate-infinite-loop.css" %}"/>
+    <style>
+        body {
+            background-color: grey;
+        }
+        .tm-navbar {
+            position: inherit;
+        }
+        #personal-information {
+            margin: 1em;
+        }
+
+    </style>
+<!--
+Tooplate 2117 Infinite Loop
+https://www.tooplate.com/view/2117-infinite-loop
+-->
+
+  </head>
+  <body>
+    <section class="text-white">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
+        <div class="container">   
+          <div class="tm-next">
+              <a href="/" class="navbar-brand">LegacyBook</a>
+          </div>
+            
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars navbar-toggler-icon"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="{% url 'account_profile' %}">Mon profil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="{% url 'logout_view' %}">Se déconnecter</a>
+              </li>
+            </ul>
+          </div>        
+        </div>
+      </nav>
+    </section>
+    
+    <section id="personal-information" class="text-white">
+        Bienvenue {{ user.first_name }} {{ user.last_name }} ! ({{ user.email }})
+    </section>
+    
+    <script src="{% static "global/js/jquery-1.9.1.min.js" %}"></script>     
+    <script src="{% static "global/js/bootstrap.min.js" %}"></script> 
+    <script>
+
+      $(function(){
+        
+        // Detect window scroll and update navbar
+        $(window).scroll(function(e){          
+          if($(document).scrollTop() > 120) {
+            $('.tm-navbar').addClass("scroll");
+          } else {
+            $('.tm-navbar').removeClass("scroll");
+          }
+        });
+
+        // Close mobile menu after click 
+        $('#tmNav a').on('click', function(){
+          $('.navbar-collapse').removeClass('show'); 
+        })
+      });
+    </script>
+  </body>
+</html>
