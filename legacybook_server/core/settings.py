@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 import environ
 import os
+import logentries
 
 root = environ.Path(__file__) - 3 # three folder back (/a/b/c/ - 3 = /)
 env = environ.Env(
@@ -135,3 +136,29 @@ LOGIN_REDIRECT_URL = 'account_profile'
 # Uncomment this settings to avoid a specific page when logged out, but
 # directly redirect to another page.
 LOGOUT_REDIRECT_URL = 'homepage'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'logentries': {
+            'level': 'WARNING',
+            'token': env('LOGENTRIES_TOKEN', default=''),
+            'class': 'logentries.LogentriesHandler',
+        }
+    },
+    'root': {
+        'handlers': ['console', 'logentries'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'logentries'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
