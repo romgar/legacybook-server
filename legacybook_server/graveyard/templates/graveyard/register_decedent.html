@@ -1,0 +1,14 @@
+{% extends 'account/account_base.html' %}
+
+{% block page-content %}
+<section id="register-decedent" class="text-white">
+    <h1>Enregistrer un défunt.</h1>
+    
+    <p>Pour pouvoir enregistrer un nouveau défunt, nous avons besoin de quelques informations :</p>
+    <form action="{% url 'graveyard:register_decedent' %}" method="POST">
+    {% csrf_token %}
+    {{ decedent_form }}
+    <button type="submit">Enregistrer</button>
+    </form>
+</section>
+{% endblock page-content %}
