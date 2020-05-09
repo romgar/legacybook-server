@@ -1,4 +1,9 @@
-{% load static %}
+{% load bootstrap4 static %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>LegacyBook</title>
-    <link rel="stylesheet" href="{% static "global/css/bootstrap.min.css" %}"/>
     <link rel="stylesheet" href="{% static "global/css/tooplate-infinite-loop.css" %}"/>
     <style>
         body {
@@ -17,28 +21,15 @@
             position: inherit;
         }
         #personal-information {
-            margin: 1em;
+            margin: 1rem;
+        }
+        #page-content {
+            margin: 1rem;
         }
 
     </style>
-<!--
-Tooplate 2117 Infinite Loop
-https://www.tooplate.com/view/2117-infinite-loop
--->
-
   </head>
   <body>
-
-    {% if messages %}
-    <section class=class="messages">
-        <ul >
-            {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    </section>
-    {% endif %}
-
     <section class="text-white">
       <!-- Navigation -->
       <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
@@ -64,11 +55,13 @@ https://www.tooplate.com/view/2117-infinite-loop
       </nav>
     </section>
 
+    <section id="page-content">
     {% block page-content %}
+
     {% endblock page-content %}
+    </section>
     
     <script src="{% static "global/js/jquery-1.9.1.min.js" %}"></script>     
-    <script src="{% static "global/js/bootstrap.min.js" %}"></script> 
     <script>
 
       $(function(){

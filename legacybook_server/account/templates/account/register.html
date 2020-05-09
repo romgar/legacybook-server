@@ -1,5 +1,9 @@
 {% extends 'marketing/index.html' %}
 
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+
 {% block extra-content %}
 {% endblock extra-content %}
 
@@ -10,8 +14,10 @@
     <h2 class="tm-hero-title">S'inscrire</h2>
     <form action="{% url 'register_user' %}" method="POST">
         {% csrf_token %}
-        {{ register_form }}
-        <button type="submit">Créer un compte</button>
+        {% bootstrap_form register_form %}
+        {% buttons %}
+        <button type="submit" class="btn btn-primary">Créer un compte</button>
+        {% endbuttons %}
     </form>
   
   </div>        

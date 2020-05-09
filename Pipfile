@@ -13,6 +13,7 @@ psycopg2 = "*"
 whitenoise = "*"
 logentries = "*"
 newrelic = "*"
+django-bootstrap4 = "*"
 
 [requires]
 python_version = "3.7"

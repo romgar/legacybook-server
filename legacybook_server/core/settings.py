@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'core',
     'account',
     'marketing',
-    'graveyard'
+    'graveyard',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [

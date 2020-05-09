@@ -1,4 +1,9 @@
-{% load static %}
+{% load bootstrap4 static %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,11 +13,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>LegacyBook</title>
     <link rel="stylesheet" href="{% static "global/fontawesome-5.5/css/all.min.css" %}" />
-    <link rel="stylesheet" href="{% static "global/slick/slick.css" %}">
-    <link rel="stylesheet" href="{% static "global/slick/slick-theme.css" %}">
-    <link rel="stylesheet" href="{% static "global/magnific-popup/magnific-popup.css" %}">
-    <link rel="stylesheet" href="{% static "global/css/bootstrap.min.css" %}"/>
-    <link rel="stylesheet" href="{% static "global/css/tooplate-infinite-loop.css" %}"/>
+    <link rel="stylesheet" href="{% static "global/slick/slick.css" %}" />
+    <link rel="stylesheet" href="{% static "global/slick/slick-theme.css" %}" />
+    <link rel="stylesheet" href="{% static "global/magnific-popup/magnific-popup.css" %}" />
+    <link rel="stylesheet" href="{% static "global/css/tooplate-infinite-loop.css" %}" />
 <!--
 Tooplate 2117 Infinite Loop
 https://www.tooplate.com/view/2117-infinite-loop
@@ -20,13 +24,7 @@ https://www.tooplate.com/view/2117-infinite-loop
 
   </head>
   <body>
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+
     <!-- Hero section -->
     <section id="infinite" class="text-white tm-font-big tm-parallax">
       <!-- Navigation -->
@@ -371,7 +369,6 @@ https://www.tooplate.com/view/2117-infinite-loop
     <script src="{% static "global/magnific-popup/jquery.magnific-popup.min.js" %}"></script>
     <script src="{% static "global/js/easing.min.js" %}"></script>
     <script src="{% static "global/js/jquery.singlePageNav.min.js" %}"></script>     
-    <script src="{% static "global/js/bootstrap.min.js" %}"></script> 
     <script>
 
       function getOffSet(){
