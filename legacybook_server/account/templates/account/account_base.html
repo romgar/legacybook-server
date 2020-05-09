@@ -28,6 +28,8 @@
         }
 
     </style>
+    {% block extra-css %}
+    {% endblock extra-css %}
   </head>
   <body>
     <section class="text-white">
@@ -61,7 +63,9 @@
     {% endblock page-content %}
     </section>
     
-    <script src="{% static "global/js/jquery-1.9.1.min.js" %}"></script>     
+    {% block extra-js %}
+    <script src="{% static "global/js/jquery-1.9.1.min.js" %}"></script>
+    {% endblock extra-js %}
     <script>
 
       $(function(){

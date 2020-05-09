@@ -4,7 +4,25 @@
 
 {% bootstrap_css %}
 
+{% block extra-css %}
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+{% endblock extra-css %}
+
+{% block extra-js %}
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $(".datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>
+{% endblock extra-js %}
+
 {% block page-content %}
+
 <section id="register-decedent" class="text-white">
     <h1>Enregistrer un défunt.</h1>
     
