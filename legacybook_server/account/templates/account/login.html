@@ -1,5 +1,9 @@
 {% extends "marketing/index.html" %}
 
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+
 {% block extra-content %}
 {% endblock extra-content %}
 
@@ -25,18 +29,10 @@
     
     <form method="post" action="{% url 'login_view' %}">
     {% csrf_token %}
-    <table>
-    <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-    </tr>
-    <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-    </tr>
-    </table>
-    
-    <input type="submit" value="login">
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">Se connecter</button>
+    {% endbuttons %}
     <input type="hidden" name="next" value="{{ next }}">
     </form>
     
