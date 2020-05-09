@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'account',
-    'marketing'
+    'marketing',
+    'graveyard'
 ]
 
 MIDDLEWARE = [
@@ -160,5 +161,5 @@ LOGGING = {
             'level': 'INFO',
             'propagate': False,
         },
-    },
+    }
 }
