@@ -24,5 +24,6 @@ urlpatterns = [
     path("", homepage, name="homepage"),
     path("account/", include("account.urls")),
     path("logger-health-check", logger_health_check),
-    path("graveyard/", include("graveyard.urls", namespace="graveyard"))
+    path("graveyard/", include("graveyard.urls", namespace="graveyard")),
+    path("marketing/", include("marketing.urls", namespace="marketing"))
 ]
