@@ -1,0 +1,38 @@
+{% extends 'marketing/index.html' %}
+
+{% block above-the-fold-content %}
+
+<section id="marketing-foresee" class="text-white" style="background-color: gray;">
+    <h1>Prévoir.</h1>
+
+    <p>Parce que votre vie numérique a été intense,</p>
+    <p>Parce que vous souhaitez controler ce qui va en rester...</p>
+
+    <p>Nous proposons differents outils pour gérer votre mort numérique, et ainsi pouvoir continuer à communiquer avec vos proches.</p>
+
+    <p>On vous propose donc de prévoir :</p>
+    <ul>
+        <li>Effacer vos comptes des réseaux sociaux</li>
+        <li>Soit en garder une archive envoyée par mail aux proches, soit redéployer en privée pour les proches</li>
+        <li>Garder une trace pour vos proches</li>
+        <li>Ecrire un texte qui vous présente</li>
+        <li>Laisser des photos</li>
+        <li>Laisser des mots personalisés pour vos proches. Ils seront envoyés par mail le jour du décès ou à la date souhaitée</li>
+        <li>Laisser des vidéos pour proches</li>
+        <li>Laisser un message pour la cérémonie</li>
+        <li>Prévoir que la cérémonie sera filmé pour les proches qui ne seront pas présents</li>
+    </ul>
+
+    <p>Vous pourrez choisir qui a accès à la page</p>
+    <ul>
+        <li>Soit proches qui seront prévenus à votre mort</li>
+        <li>Soit tout le monde</li>
+    </ul>
+
+    <p>Pour continuer, <a href="{% url 'register_user' %}">enregistrez-vous</a>.</p>
+
+{% endblock above-the-fold-content %}
+
+{% block extra-content %}
+{% endblock extra-content %}
+

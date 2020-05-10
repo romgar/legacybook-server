@@ -40,6 +40,9 @@ https://www.tooplate.com/view/2117-infinite-loop
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="{% url 'marketing:foresee' %}">Prévoir</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link tm-nav-link" href="{% url 'marketing:erasing_info' %}">Nettoyer</a>
               </li>
               {% if user.is_authenticated %}

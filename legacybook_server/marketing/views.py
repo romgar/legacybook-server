@@ -8,3 +8,7 @@ def homepage(request):
 
 def erasing_info(request):
     return render(request, 'marketing/erasing_info.html')
+
+
+def foresee(request):
+    return render(request, 'marketing/foresee.html')
