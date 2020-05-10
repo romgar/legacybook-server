@@ -15,3 +15,7 @@ def register_decedent(request):
     return render(request, 'graveyard/register_decedent.html', {
         'decedent_form': decedent_form
     })
+
+
+def person_erasing(request):
+    return render(request, 'graveyard/person_erasing.html')

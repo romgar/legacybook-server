@@ -1,0 +1,22 @@
+{% extends 'marketing/index.html' %}
+
+{% block above-the-fold-content %}
+
+<section id="marketing-erasing" class="text-white">
+    <h1>Nettoyer.</h1>
+    
+    <p>Alors que nous produisons de plus en plus de données dans le cadre de nos vies numériques, se pose désormais la question du devenir de ces données après notre mort.</p> 
+    <p>Par principe, un profil sur un réseau social ou un compte de messagerie est strictement personnel et soumis au secret des correspondances. A ce titre, le droit d’accès n’est pas transmissible aux héritiers. C’est la raison pour laquelle il n’est pas possible pour la famille d’avoir accès aux données du défunt.</p>
+    <p>Nous vous proposons donc de le faire pour vous. Soit en enregistrant vos souhait avant votre mort, soit en se rapprochant de ces réseaux pour faire effacer ces comptes.</p>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'graveyard:person_erasing' %}">Formulaire de nettoyage.</a>
+    {% else %}
+        <a href="{% url 'register_user' %}">Pour programmer ou demander un nettoyage, enregistrez-vous.</a>
+    {% endif %}
+</section>
+{% endblock above-the-fold-content %}
+
+{% block extra-content %}
+{% endblock extra-content %}
+
