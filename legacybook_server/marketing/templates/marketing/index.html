@@ -12,11 +12,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>LegacyBook</title>
+    {% block css %}
     <link rel="stylesheet" href="{% static "global/fontawesome-5.5/css/all.min.css" %}" />
     <link rel="stylesheet" href="{% static "global/slick/slick.css" %}" />
     <link rel="stylesheet" href="{% static "global/slick/slick-theme.css" %}" />
     <link rel="stylesheet" href="{% static "global/magnific-popup/magnific-popup.css" %}" />
     <link rel="stylesheet" href="{% static "global/css/tooplate-infinite-loop.css" %}" />
+    <link rel="stylesheet" href="{% static "global/css/legacybook.css" %}" />
+    {% block extra-css %}
+    {% endblock extra-css %}
+    {% endblock css %}
 <!--
 Tooplate 2117 Infinite Loop
 https://www.tooplate.com/view/2117-infinite-loop
@@ -25,20 +30,19 @@ https://www.tooplate.com/view/2117-infinite-loop
   </head>
   <body>
 
-    <!-- Hero section -->
-    <section id="infinite" class="text-white tm-font-big tm-parallax">
-      <!-- Navigation -->
-      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
-        <div class="container">   
-          <div class="tm-next">
-              <a href="/" class="navbar-brand">LegacyBook</a>
-          </div>             
-            
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars navbar-toggler-icon"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+    {% block navigation %}
+    <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
+      <div class="container">   
+        <div class="tm-next">
+            <a href="/" class="navbar-brand">LegacyBook</a>
+        </div>             
+          
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars navbar-toggler-icon"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            {% block navigation-links %}
               <li class="nav-item">
                 <a class="nav-link tm-nav-link" href="{% url 'marketing:foresee' %}">Prévoir</a>
               </li>
@@ -61,12 +65,22 @@ https://www.tooplate.com/view/2117-infinite-loop
                 </li>
                 {% endif %}
               </li>
-            </ul>
-          </div>        
-        </div>
-      </nav>
+            {% endblock navigation-links %}
+          </ul>
+        </div>        
+      </div>
+    </nav>
+    {% endblock navigation %}
 
+    <section id="main-content">
+    {% block main-content %}
+    <!-- Hero section -->
+    <section id="infinite" class="text-white tm-font-big tm-parallax">
+      <!-- Navigation -->
+
+      <div class="container">
       {% block above-the-fold-content %}
+      
       <div class="text-center tm-hero-text-container">
         <div class="tm-hero-text-container-inner">
         
@@ -84,44 +98,66 @@ https://www.tooplate.com/view/2117-infinite-loop
         </a>
       </div>
       {% endblock above-the-fold-content %}
+    </div>
     </section>
 
     {% block extra-content %}
     <section id="whatwedo" class="tm-section-pad-top">
       
       <div class="container">
-
-            <div class="row tm-content-box"><!-- first row -->
-                <div class="col-lg-12 col-xl-12">
-                    <div class="tm-intro-text-container">
-                        <h2 class="tm-text-primary mb-4 tm-section-title">What We Do</h2>
-                        <p class="mb-4 tm-intro-text">
-                          This is Infinite Loop, free Bootstrap 4.0 HTML template with a parallax effect. This layout is what you can modify and use for your websites. Please spread a word to your friends about our website. Thank you for supporting us. If you have any question, you can contact us or chat with us on our <a href="https://fb.com/tooplate">Tooplate Facebook page</a>.</p>
-                    </div>
-                </div>
-
-            </div><!-- first row -->
+        <div class="row tm-content-box"><!-- first row -->
+          <div class="col-lg-12 col-xl-12">
+              <div class="tm-intro-text-container">
+                  <h2 class="tm-text-primary mb-4 tm-section-title">Prévoir</h2>
+                  <p class="mb-4 tm-intro-text">
+                    <p>Parce que votre vie numérique a été intense,</p>
+                    <p>Parce que vous souhaitez controler ce qui va en rester...</p>
+                    <p>Nous proposons differents outils pour gérer votre mort numérique, et ainsi pouvoir continuer à communiquer avec vos proches.</p>
+                    </p>
+              </div>
+          </div>
+        </div><!-- first row -->
             
             <div class="row tm-content-box"><!-- second row -->
         		<div class="col-lg-1">
-                    <i class="far fa-3x fa-chart-bar text-center tm-icon"></i>
+                <i class="fas fa-3x fa-fingerprint text-center tm-icon"></i>
                 </div>
                 <div class="col-lg-5">
                     <div class="tm-intro-text-container">
-                        <h2 class="tm-text-primary mb-4">Market Analysis</h2>
+                        <h2 class="tm-text-primary mb-4">Laisser une trace</h2>
                         <p class="mb-4 tm-intro-text">
-                          Praesent sed pharetra lorem, blandit convallis mi. Aenean ornare elit ac metus lacinia, sed iaculis nibh semper. Pellentesque est urna.</p>
+                          <ul>
+                          <li>Ecrire un texte qui vous présente</li>
+                        <li>Laisser des photos</li>
+                        <li>Laisser des mots personalisés pour vos proches. Ils seront envoyés par mail le jour du décès ou à la date souhaitée</li>
+                        <li>Laisser des vidéos pour proches</li>
+                        <li>Laisser un message pour la cérémonie</li>
+                      </ul>
+                      <div class="tm-continue">
+                        <a href="#testimonials" class="tm-intro-text tm-btn-primary">Laisser une trace</a>
+                    </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-1">
-                    <i class="far fa-3x fa-comment-alt text-center tm-icon"></i>
+                    <i class="fas fa-3x fa-eye text-center tm-icon"></i>
                 </div>
                 <div class="col-lg-5">
                     <div class="tm-intro-text-container">
-                        <h2 class="tm-text-primary mb-4">Fast Support</h2>
+                        <h2 class="tm-text-primary mb-4">Contrôler</h2>
                         <p class="mb-4 tm-intro-text">
-                          Credit goes to <a rel="nofollow" href="https://www.pexels.com">Pexels</a> website for all images used in this template. Cras condimentum mi et sapien dignissim luctus.</p>
+                          <ul>
+                          <li>Effacer vos comptes des réseaux sociaux</li>
+                        <li>Soit en garder une archive envoyée par mail aux proches, soit redéployer en privée pour les proches</li>
+                        <li>Choisir qui a accès à la page
+                          <ul>
+                              <li>Soit proches qui seront prévenus à votre mort</li>
+                              <li>Soit tout le monde</li>
+                          </ul>
+                        </li>
+    
+                      </ul>
+
                     </div>
                 </div>
 
@@ -129,30 +165,25 @@ https://www.tooplate.com/view/2117-infinite-loop
             
             <div class="row tm-content-box"><!-- third row -->
         		<div class="col-lg-1">
-                    <i class="fas fa-3x fa-fingerprint text-center tm-icon"></i>
+                    <i class="fas fa-3x fa-tasks text-center tm-icon"></i>
                 </div>
                 <div class="col-lg-5">
                     <div class="tm-intro-text-container">
-                        <h2 class="tm-text-primary mb-4">Top Security</h2>
+                        <h2 class="tm-text-primary mb-4">Gérer la cérémonie</h2>
                         <p class="mb-4 tm-intro-text">
-                      You have <strong>no</strong> authority to post this template as a ZIP file on your template collection websites. You can <strong>use</strong> this template for your commercial websites.</p>
-                          
-                          <div class="tm-continue">
-                            <a href="#testimonials" class="tm-intro-text tm-btn-primary">Learn More</a>
-                        </div>
+                          Prévoir que la cérémonie sera filmé pour les proches qui ne seront pas présents.
+                          </p>
                     </div>
                 </div>
                 
                 <div class="col-lg-1">
-                    <i class="fas fa-3x fa-users text-center tm-icon"></i>
+                    <i class="fas fa-3x fa-wrench text-center tm-icon"></i>
                 </div>
                 <div class="col-lg-5">
                     <div class="tm-intro-text-container">
-                      <h2 class="tm-text-primary mb-4">Social Work</h2>
+                      <h2 class="tm-text-primary mb-4">Autres services</h2>
                         <p class="mb-4 tm-intro-text">
-                      You can change <a href="https://fontawesome.com/icons?d=gallery">Font Awesome icons</a> by either <b><em>fas or far</em></b> in the HTML codes. For Examples:<br>
-                      <em>&lt;i class=&quot;fas fa-users&quot;&gt;&lt;i class=&quot;far fa-chart-bar&quot;&gt;</em> </p>
-                          
+                        Nous voulons être avec vous pour se préparer du mieux possible. Nous avons de multiples services pour vous simplifier la vie.    
                           <div class="tm-continue">
                             <a href="#testimonials" class="tm-intro-text tm-btn-primary">Details</a>
                         </div>
@@ -160,25 +191,23 @@ https://www.tooplate.com/view/2117-infinite-loop
                 </div>
 
             </div><!-- third row -->
-
         </div>
-      
     </section>
-    
+
     <section id="testimonials" class="tm-section-pad-top tm-parallax-2">      
       <div class="container tm-testimonials-content">
         <div class="row">
           <div class="col-lg-12 tm-content-box">
-            <h2 class="text-white text-center mb-4 tm-section-title">Testimonials</h2>
+            <h2 class="text-white text-center mb-4 tm-section-title">Nettoyer</h2>
             <p class="mx-auto tm-section-desc text-center">
-                Nulla dictum sem non eros euismod, eu placerat tortor lobortis. Suspendisse id velit eu libero pellentesque interdum. Etiam quis congue eros.
+                De Facebook à Twitter, en passant par Instagram ou Pinterest, nous nous occupons de tout. Vous êtes en contrôle du futur numérique du défunt. 
               </p>
             <div class="mx-auto tm-gallery-container tm-gallery-container-2">
               <div class="tm-testimonials-carousel">
                 <figure class="tm-testimonial-item">
-                  <img src="{% static "global/img/testimonial-img-01.jpg" %}" alt="Image" class="img-fluid mx-auto">
-                  <blockquote>This background image includes a semi-transparent overlay layer. This section also has a parallax image effect.</blockquote>
-                  <figcaption>Catherine Win (Designer)</figcaption>
+                  <img src="{% static "global/img/facebook-icon.png" %}" alt="Image" class="img-fluid mx-auto">
+                  <blockquote>Nous passons le compte Facebook en mode commémoration. Vous avez toujours accès à toutes les données.</blockquote>
+                  <figcaption>Effectif en 2 jours.</figcaption>
                 </figure>
 
                 <figure class="tm-testimonial-item">
@@ -368,12 +397,18 @@ https://www.tooplate.com/view/2117-infinite-loop
 
     </section>
     {% endblock extra-content %}
+
+    {% endblock main-content %}
+    </section>
     
+    {% block js %} 
     <script src="{% static "global/js/jquery-1.9.1.min.js" %}"></script>     
     <script src="{% static "global/slick/slick.min.js" %}"></script>
     <script src="{% static "global/magnific-popup/jquery.magnific-popup.min.js" %}"></script>
     <script src="{% static "global/js/easing.min.js" %}"></script>
-    <script src="{% static "global/js/jquery.singlePageNav.min.js" %}"></script>     
+    <script src="{% static "global/js/jquery.singlePageNav.min.js" %}"></script>    
+    {% block extra-js %}
+    {% endblock extra-js %} 
     <script>
 
       function getOffSet(){
@@ -406,7 +441,7 @@ https://www.tooplate.com/view/2117-infinite-loop
         multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
         multiplier = 1 - multiplier;
         var $doc = $(document);
-        // $object.css({"background-attatchment" : "fixed"});
+        $object.css({"background-attatchment" : "fixed"});
 
         if(forceSet) {
           setParallaxPosition($doc, multiplier, $object);
@@ -538,5 +573,6 @@ https://www.tooplate.com/view/2117-infinite-loop
         });
       });
     </script>
+    {% endblock js %} 
   </body>
 </html>
