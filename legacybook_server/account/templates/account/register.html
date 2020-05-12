@@ -4,6 +4,9 @@
 
 {% bootstrap_css %}
 
+{% block navigation-marketing %}
+{% endblock navigation-marketing %}
+
 {% block extra-content %}
 {% endblock extra-content %}
 
@@ -11,7 +14,7 @@
 <div class="text-center tm-hero-text-container">
   <div class="tm-hero-text-container-inner">
   
-    <h2 class="tm-hero-title">S'inscrire</h2>
+    <h2 class="tm-hero-title">S'enregistrer</h2>
     <form action="{% url 'register_user' %}" method="POST">
         {% csrf_token %}
         {% bootstrap_form register_form %}

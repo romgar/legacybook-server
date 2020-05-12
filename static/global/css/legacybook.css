@@ -1,0 +1,4 @@
+.alert {
+    /* Removes the margin-bottom of 1rem introduced by bootstrap on alerts */
+    margin-bottom: 0px;
+}
