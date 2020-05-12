@@ -268,7 +268,7 @@ blockquote {
 }
 
 /* Testimonials */
-#testimonials {
+#erasing {
   color: white;
   background-image: url(../img/charles-deluvio-E3IcPzvtawE-unsplash.jpg);
   background-size: cover;
@@ -278,7 +278,7 @@ blockquote {
 }
 
 @media (max-width: 991px) {
-  #testimonials {
+  #erasing {
     background-image: url(../img/charles-deluvio-E3IcPzvtawE-unsplash.jpg);
   }
 }
@@ -328,46 +328,6 @@ blockquote {
   max-width: 650px;
   width: 100%;
   font-size: 0.9rem;
-}
-
-.tm-gallery-container {
-  padding-top: 70px;
-  padding-bottom: 120px;
-}
-
-.tm-gallery-item {
-  margin: 0 15px;
-}
-
-.slick-dots {
-  bottom: -65px;
-}
-
-.slick-dots li {
-  margin: 0 13px;
-}
-
-.slick-dots li button:hover:before,
-.slick-dots li button:focus:before,
-.slick-dots li.slick-active button:before {
-  opacity: 1;
-  color: #3ba0dd;
-}
-
-.tm-testimonials-carousel .slick-dots li button:before {
-  color: white;
-  opacity: 0.5;
-}
-
-.tm-testimonials-carousel .slick-dots li button:hover:before,
-.tm-testimonials-carousel .slick-dots li button:focus:before,
-.tm-testimonials-carousel .slick-dots li.slick-active button:before {
-  color: white;
-  opacity: 1;
-}
-
-.slick-dots li button:before {
-  font-size: 18px;
 }
 
 /* Hover Effect */
@@ -507,9 +467,6 @@ figure.effect-honey:hover h2 i {
   transform: translate3d(0, 0, 0);
 }
 
-.tm-container-gallery {
-	padding-top: 30px;
-	}
 
 /* Contact */
 
@@ -631,10 +588,6 @@ p {
     max-width: 1275px;
   }
 
-  .tm-container-gallery {
-    max-width: 1290px;
-  }
-
   .tm-container-contact {
     max-width: 1063px;
   }
@@ -677,25 +630,5 @@ p {
   .navbar-collapse .nav-link {
     color: #707070;
 	padding-right: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .tm-gallery-container {
-    max-width: 220px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .tm-gallery-container-2 {
-    max-width: 350px;
-  }
-
-  .slick-dots li {
-    margin: 0 8px;
-  }
-
-  .tm-gallery-item {
-    margin: 0;
   }
 }
