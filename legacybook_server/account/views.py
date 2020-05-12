@@ -21,6 +21,9 @@ class CustomLogoutView(LogoutView):
 
 def register(request):
 
+    if request.user.is_authenticated:
+        return redirect('account_profile')
+
     register_form = RegisterUserForm()
     if request.method == 'POST':
         register_form = RegisterUserForm(request.POST)
